@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const exampleRoute = require("./routes/example");
@@ -19,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //db set up
-const db = require("./models");
+const db = require("./database-models");
 db.sequelize.sync();
 
 // route registration

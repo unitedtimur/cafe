@@ -1,8 +1,10 @@
+const {Emilia, Christian} = require('../models/characters');
+
 const {Router} = require('express');
 const router = Router();
 
 router.get("/", (req, res) => {
-    res.json({ message: "Example route here!" });
+    res.send(Christian);
 });
 
 module.exports = router;
