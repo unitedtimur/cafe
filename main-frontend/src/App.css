@@ -1,0 +1,70 @@
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notes-month {
+    font-size: 28px;
+    text-align: center;
+}
+
+.notes-month section {
+    font-size: 28px;
+}
+
+.row-class {
+    background: GhostWhite;
+}
+
+.ant-tooltip-inner > a {
+    color: white;
+}
+
+.cafe {
+    width: 100%;
+    height: 100%;
+    background: url(./images/background-cafe.png);
+    background-size: 100% 100%;
+}
+
+.kitchen {
+    background: url(./images/background-kitchen.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
+.sider-controller {
+    color: white;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ingredient {
+    animation: ingredient 1.3s infinite;
+}
+
+@keyframes ingredient {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
