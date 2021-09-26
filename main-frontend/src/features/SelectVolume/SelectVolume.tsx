@@ -1,27 +1,37 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Slider, Typography } from 'antd/es';
+import {Button, Slider, Tooltip, Typography} from 'antd/es';
+import { SoundTwoTone, StopTwoTone } from '@ant-design/icons';
 
-import { setVolume } from '../../store/actions';
+import { changeMusicPlay, setVolume } from '../../store/actions';
 import { IState } from '../../intarfaces';
 
 const { Title } = Typography;
 
 const SelectVolume: React.FC = () => {
     const dispatch: any = useDispatch();
-    const volume = useSelector((state: IState) => state.volume);
+    const { volume, isMusicPlay } = useSelector((state: IState) => state);
 
     return (
         <>
             <Title level={2} style={{ textAlign: 'center' }}>Звук:</Title>
-            <Slider
-                style={{ width: '300px', margin: 'auto' }}
-                min={0}
-                max={100}
-                onChange={(volume: number) => dispatch(setVolume(volume))}
-                value={volume}
-            />
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <Slider
+                    style={{ width: '300px', marginRight: '20px' }}
+                    min={0}
+                    max={1}
+                    step={0.1}
+                    onChange={(volume: number) => dispatch(setVolume(volume))}
+                    value={volume}
+                />
+                <Tooltip title={`${isMusicPlay ? 'Выключить' : 'Включить'} звук`}>
+                    <Button onClick={() => dispatch(changeMusicPlay())}
+                    >
+                        {isMusicPlay ? <StopTwoTone /> : <SoundTwoTone />}
+                    </Button>
+                </Tooltip>
+            </div>
         </>
     )
 };

@@ -1,5 +1,6 @@
 export const IS_BEGIN_PAGE = 'IS_BEGIN_PAGE';
 export const SET_VOLUME = 'SET_VOLUME';
+export const CHANGE_MUSIC_STATE = 'CHANGE_MUSIC_STATE';
 
 export function setVolume(volume: number) {
     return {
@@ -12,6 +13,12 @@ export function changeIsBeginPage(value: boolean) {
     return {
         type: IS_BEGIN_PAGE,
         value,
+    }
+}
+
+export function changeMusicPlay() {
+    return {
+        type: CHANGE_MUSIC_STATE,
     }
 }
 

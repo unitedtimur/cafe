@@ -6,7 +6,12 @@ import client2 from '../../images/client2.png';
 const Cafe: React.FC = () => {
     return (
         <div className="cafe">
-            <Tooltip title="fuck you fuck you fuck you fuck you fuck you fuck you" visible overlayStyle={{maxWidth: '200px'}}>
+            <Tooltip
+                title="fuck you fuck you fuck you fuck you fuck you fuck you"
+                visible
+                overlayStyle={{maxWidth: '200px'}}
+                zIndex={2}
+            >
                 <img
                     alt="client"
                     src={client2}
@@ -15,7 +20,12 @@ const Cafe: React.FC = () => {
                     style={{position: 'absolute', top: '41.3vh', right: '40vw'}}
                 />
             </Tooltip>
-            <Tooltip title="fuck you fuck you fuck you fuck you fuck you fuck you" visible overlayStyle={{maxWidth: '200px'}}>
+            <Tooltip
+                title="fuck you fuck you fuck you fuck you fuck you fuck you"
+                visible
+                overlayStyle={{maxWidth: '200px'}}
+                zIndex={2}
+            >
                 <img
                     alt="client"
                     src={client1}
