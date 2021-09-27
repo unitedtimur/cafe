@@ -1,55 +1,25 @@
 const MikeDialogs = [
 	{
-		"id": 1,
+		"dialogId": "9eaf023c-1a3b-42bd-ac62-fbecccf2f0d8",
 		"characterId": "6791afb9-272c-4ea6-97cf-4e0155a6ff77",
-		"isPlayersPhrase": false,
-		"isChoise": false,
 		"phrase": "Привет, коллега.",
-		"nextId": 2
+		"playerPhrasesArray": ["Здравствуйте.", "Добрый день.", "<Промолчать>"],
+		"nextIdsArray": ["1d6a0595-c2b4-4a62-99fc-44628a9f24aa", "4ce78e32-3528-4bb2-84fe-1ec95813f6f0", null]
 	},
 
 	{
-		"id": 2,
-		"characterId": null,
-		"isPlayersPhrase": true,
-		"isChoise": true,
-		"phrasesArray": ["Здравствуйте.", "<Промолчать>"],
-		"nextIdsArray": [[3, 5], null]
-	},
-
-	{
-		"id": 3,
+		"dialogId": "1d6a0595-c2b4-4a62-99fc-44628a9f24aa",
 		"characterId": "6791afb9-272c-4ea6-97cf-4e0155a6ff77",
-		"isPlayersPhrase": false,
-		"isChoise": false,
 		"phrase": "Знаете, я заметил, что у вас очень много посетителей. Продайте мне своё кафе!",
-		"nextId": 4
+		"playerPhrasesArray": ["Нет! Ни за что! Я очень долго шла к этому."],
+		"nextId": [null]
 	},
 
 	{
-		"id": 4,
-		"characterId": null,
-		"isPlayersPhrase": true,
-		"isChoise": false,
-		"phrase": "Нет! Ни за что! Я очень долго шла к этому.",
-		"nextId": null
-	},
-
-	{
-		"id": 5,
+		"dialogId": "4ce78e32-3528-4bb2-84fe-1ec95813f6f0",
 		"characterId": "6791afb9-272c-4ea6-97cf-4e0155a6ff77",
-		"isPlayersPhrase": false,
-		"isChoise": false,
 		"phrase": "Я смотрю, что вы не справляетесь с должностью администратора. Вот если бы я был на вашем месте, всё было бы лучше.",
-		"nextId": 6
-	},
-
-	{
-		"id": 6,
-		"characterId": null,
-		"isPlayersPhrase": true,
-		"isChoise": false,
-		"phrase": "Что вы себе позволяете?! Немедленно покиньте моё заведение!",
-		"nextId": null
+		"playerPhrasesArray": ["Что вы себе позволяете?! Немедленно покиньте моё заведение!"],
+		"nextId": [null]
 	}
 ] 
