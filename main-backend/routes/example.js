@@ -1,10 +1,8 @@
-const {Emilia, Christian} = require('../models/characters');
-
 const {Router} = require('express');
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send(Christian);
+router.get("/character/{id}/info", (req, res) => {
+    res.send(characters[1])
 });
 
 module.exports = router;
