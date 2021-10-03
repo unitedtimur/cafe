@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
-const exampleRoute = require("./routes/example");
+const charactersRoute = require("./routes/characters");
+const dialogsRoute = require("./routes/dialogs");
 
 const app = express();
 
@@ -17,12 +18,9 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-//db set up
-const db = require("./database-models");
-db.sequelize.sync();
-
 // route registration
-app.use('/', exampleRoute);
+app.use("/characters", charactersRoute);
+app.use("/dialogs", dialogsRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
