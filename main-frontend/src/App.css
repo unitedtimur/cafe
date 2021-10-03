@@ -54,6 +54,7 @@
 }
 
 .ingredient {
+    cursor: grab;
     animation: ingredient 1.3s infinite;
 }
 
@@ -67,4 +68,33 @@
     100% {
         transform: scale(1);
     }
+}
+
+.pan {
+    position: absolute;
+    top: 64vh;
+    right: 20vw;
+    width: 270px;
+    height: 130px;
+    background: url(./images/pan.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.is-clicked-pan {
+    animation: ingredient 1.3s infinite;
+}
+
+.pan-inside {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    height: 100%;
+}
+
+.ingredients-container {
+    display: flex;
+    height: 100px;
+    align-items: flex-end;
+    justify-content: center;
 }

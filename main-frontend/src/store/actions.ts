@@ -1,3 +1,5 @@
+import { getInfoApi } from '../extra/api-request';
+
 export const IS_BEGIN_PAGE = 'IS_BEGIN_PAGE';
 export const SET_VOLUME = 'SET_VOLUME';
 export const CHANGE_MUSIC_STATE = 'CHANGE_MUSIC_STATE';
@@ -20,6 +22,14 @@ export function changeMusicPlay() {
     return {
         type: CHANGE_MUSIC_STATE,
     }
+}
+
+export function getInfo() {
+    return async (dispatch: any) => {
+        const response = await getInfoApi();
+
+        console.log(response)
+    };
 }
 
 // export function getPlayerAction(playerName: string) {

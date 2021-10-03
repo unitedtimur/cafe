@@ -29,12 +29,12 @@ const App: React.FC = () => {
     const { isBeginPage, volume, isMusicPlay } = useSelector((state: IState) => state);
 
     const [ collapsed, setCollapsed ] = useState<boolean>(true);
-    const [ sound, setSound ] = useState<HTMLAudioElement>(new Audio(mp3));
+    const [ sound ] = useState<HTMLAudioElement>(new Audio(mp3));
     const [ isVisibleDrawer, setIsVisibleDrawer ] = useState<boolean>(false);
 
-    useEffect(() => {
-        history.push('/');
-    }, []);
+    // useEffect(() => {
+    //     history.push('/');
+    // }, []);
 
     useEffect(() => {
         sound.volume = volume;
@@ -116,6 +116,6 @@ const App: React.FC = () => {
             </Layout>
         </div>
     );
-}
+};
 
 export default App;

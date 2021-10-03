@@ -2,7 +2,7 @@ import { IS_BEGIN_PAGE, SET_VOLUME, CHANGE_MUSIC_STATE } from './actions';
 import { IState } from '../intarfaces';
 
 const initialState: IState = {
-    isBeginPage: true,
+    isBeginPage: false,
     volume: 0.5,
     isMusicPlay: false,
 };

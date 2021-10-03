@@ -18,16 +18,12 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-//db set up
-const db = require("./database-models");
-db.sequelize.sync();
-
 // route registration
 app.use("/characters", charactersRoute);
 app.use("/dialogs", dialogsRoute);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
