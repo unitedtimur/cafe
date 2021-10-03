@@ -3,17 +3,17 @@ const router = Router();
 const fs = require('fs');
 const path = require('path')
 
-router.get("/christian/dialog/:id", (req, res) => {
-    if(req.params.id) {
+router.get("/:dialogId", (req, res) => {
+    try {
         fs.readFile(
-            path.join(__dirname, '..', 'json-models', 'dialogs', 'Christian.json'),
+            path.join(__dirname, '..', 'json-models', 'dialogs', 'dialogs.json'),
             'utf-8',
             (error, content) => {
                 if(error) {
                     throw error
                 } else {
                     const dialogs = JSON.parse((content));
-                    const dialog = dialogs.find(d => d.dialogId === req.params.id);
+                    const dialog = dialogs.find(d => d.dialogId === req.params.dialogId);
                     if(!dialog) {
                         res.send("Invalid dialog id");
                     } else{
@@ -22,53 +22,9 @@ router.get("/christian/dialog/:id", (req, res) => {
                 }
             }
         );
-    } else {
-        res.send("The end of dialog");
+    }catch (error){
+        req.send(error)
     }
-});
-
-router.get("/emilia/dialog/:id", (req, res) => {
-    if(req.params.id) {
-        fs.readFile(
-            path.join(__dirname, '..', 'json-models', 'dialogs', 'Christian.json'),
-            'utf-8',
-            (error, content) => {
-                if(error) {
-                    throw error
-                } else {
-                    const dialogs = JSON.parse((content));
-                    const dialog = dialogs.find(d => d.dialogId === req.params.id);
-                    if(!dialog) {
-                        res.send("Invalid dialog id");
-                    } else{
-                        res.send(dialog);
-                    }
-                }
-            }
-        );
-    }
-});
-
-router.get("/mike/dialog/:id", (req, res) => {
-    if(req.params.id) {
-        fs.readFile(
-            path.join(__dirname, '..', 'json-models', 'dialogs', 'Christian.json'),
-            'utf-8',
-            (error, content) => {
-                if(error) {
-                    throw error
-                } else {
-                    const dialogs = JSON.parse((content));
-                    const dialog = dialogs.find(d => d.dialogId === req.params.id);
-                    if(!dialog) {
-                        res.send("Invalid dialog id");
-                    } else{
-                        res.send(dialog);
-                    }
-                }
-            }
-        );
-    }
-});
+})
 
 module.exports = router;
