@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23bbf2b5-da32-46b0-b89a-047eeeed154a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/json-models/dialogs/Christian.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/json-models/dialogs/Emilia.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/json-models/dialogs/Mike.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/dialogs.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
