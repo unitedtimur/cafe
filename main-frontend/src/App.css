@@ -98,3 +98,11 @@
     align-items: flex-end;
     justify-content: center;
 }
+
+.answer-button {
+    color: white;
+}
+
+.answer-button:last-child {
+    margin-left: 10px;
+}

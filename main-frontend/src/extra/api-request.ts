@@ -2,7 +2,15 @@
 
 export function getInfoApi() {
     return new Promise((resolve) => {
-        fetch('/dialogs/christian/dialog/d433b653-60da-4c27-b47c-0b76fe4d20fa')
+        fetch('/dialogs/6ff49fbb-c801-41dd-8d82-ac59e5ca939a')
+            .then(response => response.json())
+            .then(data => resolve(data));
+    })
+}
+
+export function getDialogApi(dialogId: string) {
+    return new Promise((resolve) => {
+        fetch(`/dialogs/${dialogId}`)
             .then(response => response.json())
             .then(data => resolve(data));
     })

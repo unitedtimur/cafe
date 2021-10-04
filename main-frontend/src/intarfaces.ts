@@ -2,6 +2,7 @@ export interface IState {
     isBeginPage: boolean,
     volume: number,
     isMusicPlay: boolean,
+    dialogInfo: IDialogInfo | null,
 }
 
 export interface IIngredient {
@@ -11,4 +12,16 @@ export interface IIngredient {
     height?: number,
     smallWidth?: number,
     smallHeight?: number,
+}
+
+export interface IDialogInfo {
+    characterId: string,
+    dialogId: string,
+    phrase: string,
+    playerPhrasesArray: IPlayerPhrasesItem[],
+}
+
+export interface IPlayerPhrasesItem {
+    nextDialogId: string | null,
+    phrase: string,
 }
