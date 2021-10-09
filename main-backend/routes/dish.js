@@ -3,22 +3,24 @@ const router = Router();
 const fs = require('fs');
 const path = require('path')
 
-router.get("/:dialogId", (req, res) => {
+router.get("/:firstIngredientId/:secondIngredientId/:thirdIngredientId", (req, res) => {
     try {
         fs.readFile(
-            path.join(__dirname, '..', 'json-models', 'dialogs', 'dialogs.json'),
+            path.join(__dirname, '..', 'json-models', 'food', 'dish.json'),
             'utf-8',
             (error, content) => {
                 if(error) {
                     throw error
                 } else {
-                    const dialogs = JSON.parse((content));
-                    const dialog = dialogs.find(d => d.dialogId === req.params.dialogId);
-                    if(!dialog) {
-                        res.send("Invalid dialog id");
-                    } else{
-                        res.send(dialog);
-                    }
+                    const ingredientsArray = [req.params.firstIngredientId, req.params.secondIngredientId, req.params.thirdIngredientId];
+                    const dishes = JSON.parse((content));
+                    //const dish = dishes.find(d => d.ingredients === ingredientsArray);
+                    console.log(dishes[0].ingredients === ingredientsArray)
+                    // if(!dialog) {
+                    //     res.send("Invalid dialog id");
+                    // } else{
+                    //     res.send(dialog);
+                    // }
                 }
             }
         );

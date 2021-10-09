@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // route registration
 app.use("/characters", charactersRoute);
 app.use("/dialogs", dialogsRoute);
-app.use("/dish", dialogsRoute);
+app.use("/dish", dishRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
