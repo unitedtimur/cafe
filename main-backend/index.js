@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const charactersRoute = require("./routes/characters");
 const dialogsRoute = require("./routes/dialogs");
+const dishRoute = require("./routes/dish");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // route registration
 app.use("/characters", charactersRoute);
 app.use("/dialogs", dialogsRoute);
+app.use("/dish", dialogsRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
