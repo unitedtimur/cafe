@@ -2,6 +2,7 @@ const {Router} = require('express');
 const router = Router();
 const fs = require('fs');
 const path = require('path')
+const lodash = require('lodash')
 
 router.get("/:firstIngredientId/:secondIngredientId/:thirdIngredientId", (req, res) => {
     try {
@@ -14,13 +15,14 @@ router.get("/:firstIngredientId/:secondIngredientId/:thirdIngredientId", (req, r
                 } else {
                     const ingredientsArray = [req.params.firstIngredientId, req.params.secondIngredientId, req.params.thirdIngredientId];
                     const dishes = JSON.parse((content));
-                    //const dish = dishes.find(d => d.ingredients === ingredientsArray);
-                    console.log(dishes[0].ingredients === ingredientsArray)
-                    // if(!dialog) {
-                    //     res.send("Invalid dialog id");
-                    // } else{
-                    //     res.send(dialog);
-                    // }
+                    let isDifference = [];
+                    for(let i in dishes) {
+                        isDifference = lodash.difference(dishes[i].ingredients, ingredientsArray);
+                        if(!isDifference.length) {
+                            return dishes[i].id
+                        }
+                    }
+                    return null
                 }
             }
         );
