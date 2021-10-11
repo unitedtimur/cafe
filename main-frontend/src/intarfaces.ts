@@ -3,6 +3,7 @@ export interface IState {
     volume: number,
     isMusicPlay: boolean,
     dialogInfo: IDialogInfo | null,
+    friedFood: boolean,
 }
 
 export interface IIngredient {

@@ -71,14 +71,17 @@
 }
 
 .pan {
-    position: absolute;
-    top: 64vh;
-    right: 20vw;
     width: 270px;
     height: 130px;
     background: url(./images/pan.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+.pan-container {
+    position: absolute;
+    top: 64vh;
+    right: 20vw;
 }
 
 .is-clicked-pan {
@@ -101,6 +104,8 @@
 
 .answer-button {
     color: white;
+    height: 100%;
+    white-space: pre-wrap;
 }
 
 .answer-button:last-child {

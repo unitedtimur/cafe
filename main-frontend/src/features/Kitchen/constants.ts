@@ -34,3 +34,9 @@ export const ingredients2: IIngredient[] = [
 
 ];
 
+export const statuses = {
+    success: 'success',
+    cooking: 'cooking',
+    error: 'error',
+};
+

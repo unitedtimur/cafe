@@ -16,14 +16,14 @@ const Cafe: React.FC = () => {
 
     useEffect(() => {
         if(_.isNull(dialogInfo)) {
-            dispatch(getDialog('6ff49fbb-c801-41dd-8d82-ac59e5ca939a'));
+            dispatch(getDialog('9d73f2e6-151e-408f-82ef-dc2add75ad6c'));
         }
     }, []);
 
     const dialogTooltip = (
         <>
             <div style={{ textAlign: 'center', marginBottom: '15px' }}>{dialogInfo?.phrase}</div>
-            <div style={{ display: 'flex' }}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
                 {
                     _.map(dialogInfo?.playerPhrasesArray, item => (
@@ -56,7 +56,7 @@ const Cafe: React.FC = () => {
                     src={client2}
                     width="170"
                     height="250"
-                    style={{ position: 'absolute', top: '41.3vh', right: '40vw' }}
+                    style={{ position: 'absolute', top: '41.3vh', right: '40vw', pointerEvents: 'none' }}
                 />
             </Tooltip>
             {/*<Tooltip*/}
@@ -70,7 +70,7 @@ const Cafe: React.FC = () => {
             {/*        src={client1}*/}
             {/*        width="300"*/}
             {/*        height="250"*/}
-            {/*        style={{ position: 'absolute', top: '41.3vh', right: '15vw' }}*/}
+            {/*        style={{ position: 'absolute', top: '41.3vh', right: '15vw', pointerEvents: 'none' }}*/}
             {/*    />*/}
             {/*</Tooltip>*/}
         </div>

@@ -1,4 +1,4 @@
-import { IS_BEGIN_PAGE, SET_VOLUME, CHANGE_MUSIC_STATE, SET_DIALOG } from './actions';
+import { IS_BEGIN_PAGE, SET_VOLUME, CHANGE_MUSIC_STATE, SET_DIALOG, SET_FRIED_FOOD } from './actions';
 import { IState } from '../intarfaces';
 
 const initialState: IState = {
@@ -6,6 +6,7 @@ const initialState: IState = {
     volume: 0.5,
     isMusicPlay: false,
     dialogInfo: null,
+    friedFood: false,
 };
 
 export default function reducer(state = initialState, action: any): IState {
@@ -32,6 +33,12 @@ export default function reducer(state = initialState, action: any): IState {
             return {
                 ...state,
                 dialogInfo: action.dialogInfo,
+            }
+
+        case SET_FRIED_FOOD:
+            return {
+                ...state,
+                friedFood: action.friedFood,
             }
 
         default: return state;

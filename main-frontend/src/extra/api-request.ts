@@ -15,3 +15,11 @@ export function getDialogApi(dialogId: string) {
             .then(data => resolve(data));
     })
 }
+
+export function getServerConfirmApi(ids: string[]) {
+    return new Promise((resolve) => {
+        // fetch(`/dialogs/${dialogId}`)
+        //     .then(response => response.json())
+        //     .then(data => resolve(data));
+    })
+}
