@@ -1,4 +1,4 @@
-import { getInfoApi, getDialogApi, getServerConfirmApi } from '../extra/api-request';
+import { getDialogApi, getServerConfirmApi } from '../extra/api-request';
 
 export const IS_BEGIN_PAGE = 'IS_BEGIN_PAGE';
 export const SET_VOLUME = 'SET_VOLUME';
@@ -26,14 +26,6 @@ export function changeMusicPlay() {
     }
 }
 
-export function getInfo() {
-    return async (dispatch: any) => {
-        const response = await getInfoApi();
-
-        console.log(response)
-    };
-}
-
 export function setFriedFood(status: boolean = true) {
     return {
         type: SET_FRIED_FOOD,
@@ -55,17 +47,10 @@ export function getDialog(dialogId: string) {
 }
 
 export function getServerConfirm(ids: string[]) {
-    return async (dispatch: any) => await getServerConfirmApi(ids);
-}
+    return async (dispatch: any) => {
+        const response = await getServerConfirmApi(ids);
 
-// export function getPlayerAction(playerName: string) {
-//     return async (dispatch: any) => {
-//         const response = await getPlayersFromAPI(playerName);
-//
-//         dispatch({
-//             type: SET_PLAYERS,
-//             nickname: response.nickname,
-//             accountId: response.account_id,
-//         })
-//     };
-// }
+        console.log(response)
+        return response;
+    }
+}

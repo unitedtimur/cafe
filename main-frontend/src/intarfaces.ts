@@ -9,6 +9,7 @@ export interface IState {
 export interface IIngredient {
     id?: string,
     src?: string,
+    name?: string,
     width?: number,
     height?: number,
     smallWidth?: number,

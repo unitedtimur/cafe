@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import _ from 'lodash';
 
-import { Progress, message, Button } from 'antd/es';
+import { Progress, message, Button, Tooltip } from 'antd/es';
 
 import { ingredients1, statuses } from './constants';
 import { setFriedFood, getServerConfirm } from '../../store/actions';
@@ -25,19 +25,17 @@ const Kitchen: React.FC = () => {
 
     useEffect(() => {
         if (dish.length === 3) {
-            setTime(0);
-            setStatusDish(statuses.cooking);
-            // // @ts-ignore
-            // dispatch(getServerConfirm(_.map(dish, item => item.id)))
-            //     .then((res: boolean) => {
-            //         if (res) {
-            //             setTime(0);
-            //             setStatusDish(statuses.cooking);
-            //         } else {
-            //             setIngredients([ ...ingredients1 ]);
-            //             setDish([]);
-            //         }
-            //     });
+            // @ts-ignore
+            dispatch(getServerConfirm(_.map(dish, item => item.id)))
+                .then((res: boolean) => {
+                    if (res) {
+                        setTime(0);
+                        setStatusDish(statuses.cooking);
+                    } else {
+                        setIngredients([ ...ingredients1 ]);
+                        setDish([]);
+                    }
+                });
         }
     }, [ dish.length ]);
 
@@ -92,20 +90,22 @@ const Kitchen: React.FC = () => {
     return (
         <div className="kitchen">
             <div className="ingredients-container">
-                {_.map(ingredients, (value, index) => (
-                    <img
-                        style={index === 1 ? { alignSelf: 'flex-start' } : {}}
-                        key={value.id}
-                        alt={value.id}
-                        src={value.src}
-                        width={value.width}
-                        height={value.height}
-                        draggable
-                        onDragEnd={e => onDragEnd(e, value)}
-                        onDragOver={onDragOver}
-                        onDragStart={e => onDragStart(e, value)}
-                        className="ingredient"
-                    />
+                { statusDish === statuses.error && _.map(ingredients, (value, index) => (
+                    <Tooltip title={value.name} key={value.id}>
+                        <img
+                            style={index % 2 ? { alignSelf: 'flex-start' } : {}}
+                            key={value.id}
+                            alt={value.id}
+                            src={value.src}
+                            width={value.width}
+                            height={value.height}
+                            draggable
+                            onDragEnd={e => onDragEnd(e, value)}
+                            onDragOver={onDragOver}
+                            onDragStart={e => onDragStart(e, value)}
+                            className="ingredient"
+                        />
+                    </Tooltip>
                 ))}
             </div>
             <div className="pan-container">
