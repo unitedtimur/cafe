@@ -1,0 +1,17 @@
+[
+  {
+    "id": "d0c9144e-ceef-4244-a046-a53b0304c3d2",
+    "name": "pastaWithMushrooms",
+    "ingredients": ["905e58e1-7c36-41fc-b431-a018f65808ec", "cf7f2847-922e-4d9d-a429-baadc2861f2b", "1c712b22-0e00-4221-aed9-a9bb48bcd3f4"]
+  },
+  {
+    "id": "a0888957-205f-4b59-8cdf-23814fe9670d",
+    "name": "meatWithSouse",
+    "ingredients": ["3e3c447b-2150-4ade-a88e-7933634cd656", "b1dc80ea-c6e5-44ae-9d69-a47cb982ca4a", "98a66507-6c0f-4dd1-880a-1599d8dbbf75"]
+  },
+  {
+    "id": "7f161e9f-a481-4da7-a694-1576dbe729d0",
+    "name": "mushroomsSoup",
+    "ingredients": ["bcc2e20f-35c6-40ac-bc71-a0361ee0f60c", "1c712b22-0e00-4221-aed9-a9bb48bcd3f4", "b1dc80ea-c6e5-44ae-9d69-a47cb982ca4a"]
+  }
+]

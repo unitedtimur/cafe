@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1c712b22-0e00-4221-aed9-a9bb48bcd3f4",
+    "name": "mushrooms"
+  },
+  {
+    "id": "905e58e1-7c36-41fc-b431-a018f65808ec",
+    "name": "pasta"
+  },
+  {
+    "id": "3e3c447b-2150-4ade-a88e-7933634cd656",
+    "name": "meat"
+  },
+  {
+    "id": "cf7f2847-922e-4d9d-a429-baadc2861f2b",
+    "name": "cream"
+  },
+  {
+    "id": "b1dc80ea-c6e5-44ae-9d69-a47cb982ca4a",
+    "name": "spices"
+  },
+  {
+    "id": "98a66507-6c0f-4dd1-880a-1599d8dbbf75",
+    "name": "sauce"
+  },
+  {
+    "id": "bcc2e20f-35c6-40ac-bc71-a0361ee0f60c",
+    "name": "potatoes"
+  }
+]
