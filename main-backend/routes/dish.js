@@ -22,7 +22,7 @@ router.get("/:firstIngredientId/:secondIngredientId/:thirdIngredientId", (req, r
                             res.send({dishId: dishes[i].id});
                         }
                     }
-                    res.send({dishId: []});
+                    res.send({dishId: ""});
                 }
             }
         );
