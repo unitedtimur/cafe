@@ -20,9 +20,11 @@ router.get("/:firstIngredientId/:secondIngredientId/:thirdIngredientId", (req, r
                         isDifference = lodash.difference(dishes[i].ingredients, ingredientsArray);
                         if(!isDifference.length) {
                             res.send({dishId: dishes[i].id});
+                            return;
                         }
                     }
                     res.send({dishId: ""});
+                    return;
                 }
             }
         );
