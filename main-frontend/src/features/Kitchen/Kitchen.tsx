@@ -27,8 +27,8 @@ const Kitchen: React.FC = () => {
         if (dish.length === 3) {
             // @ts-ignore
             dispatch(getServerConfirm(_.map(dish, item => item.id)))
-                .then((res: boolean) => {
-                    if (res) {
+                .then((res: string) => {
+                    if (res.length) {
                         setTime(0);
                         setStatusDish(statuses.cooking);
                     } else {
@@ -40,12 +40,13 @@ const Kitchen: React.FC = () => {
     }, [ dish.length ]);
 
     useEffect(() => {
+        console.log(time, statusDish)
         time < 10 && statusDish === statuses.cooking && setTimeout(() => setTime(time + 0.5), 500);
         if(time === 10) {
             setStatusDish(statuses.error);
             message.warning('Пережарили :(');
         }
-    }, [ time ]);
+    }, [ time, statusDish ]);
 
     const onDragStart = (e: React.DragEvent, target: IIngredient) => {
         setIsShowHint(true);
