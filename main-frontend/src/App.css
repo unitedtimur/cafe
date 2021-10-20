@@ -1,0 +1,113 @@
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.notes-month {
+    font-size: 28px;
+    text-align: center;
+}
+
+.notes-month section {
+    font-size: 28px;
+}
+
+.row-class {
+    background: GhostWhite;
+}
+
+.ant-tooltip-inner > a {
+    color: white;
+}
+
+.cafe {
+    width: 100%;
+    height: 100%;
+    background: url(./images/background-cafe.png);
+    background-size: 100% 100%;
+}
+
+.kitchen {
+    background: url(./images/background-kitchen.jpg);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+
+.sider-controller {
+    color: white;
+    height: 60px;
+    align-items: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ingredient {
+    cursor: grab;
+    animation: ingredient 1.3s infinite;
+}
+
+@keyframes ingredient {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pan {
+    width: 270px;
+    height: 130px;
+    background: url(./images/pan.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.pan-container {
+    position: absolute;
+    top: 64vh;
+    right: 20vw;
+}
+
+.is-clicked-pan {
+    animation: ingredient 1.3s infinite;
+}
+
+.pan-inside {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    height: 100%;
+}
+
+.ingredients-container {
+    display: flex;
+    height: 100px;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.answer-button {
+    color: white;
+    height: 100%;
+    white-space: pre-wrap;
+}
+
+.answer-button:last-child {
+    margin-left: 10px;
+}
