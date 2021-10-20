@@ -66,53 +66,21 @@ const App: React.FC = () => {
         <div className="App">
             {modal}
             <Layout style={{ minHeight: '100vh' }}>
-                {!isBeginPage && (
-                    <Sider
-                        trigger={null}
-                        collapsible
-                        width={170}
-                        collapsed={collapsed}
-                        style={{ position: 'absolute', zIndex: 2, minHeight: '100vh' }}
-                        collapsedWidth={60}>
-                        <div
-                            onClick={() => setCollapsed(!collapsed)}
-                            className="sider-controller">
-                            {
-                                collapsed ?
-                                    <MenuUnfoldOutlined style={{ color: 'white' }} />:
-                                    <MenuFoldOutlined style={{ color: 'white' }} />
-                            }
-                        </div>
-                        <Menu theme="dark" mode="inline" selectedKeys={[ pathname ]}>
-                            <Menu.Item key="/cafe" icon={<ShopOutlined />}>
-                                <Link to="/cafe">Кафе</Link>
-                            </Menu.Item>
-                            <Menu.Item key="/kitchen" icon={<AppstoreOutlined />}>
-                                <Link to="/kitchen">Кухня</Link>
-                            </Menu.Item>
-                        </Menu>
-                    </Sider>)
-                }
-                <Layout className="site-layout">
-                    <Header style={{ background: 'white', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                        <div onClick={() => setIsVisibleDrawer(true)}>
-                            <Avatar
-                                style={{ backgroundColor: '#87d068', cursor: "pointer" }}
-                                icon={<UserOutlined />}
-                            />
-                        </div>
-                    </Header>
-                    <Content
-                        className="site-layout-background"
-                        style={{ paddingLeft: '60px' }}
-                    >
-                        <Switch>
-                            <Route exact path='/' component={BeginPage} />
-                            <Route path='/cafe' component={Cafe} />
-                            <Route path='/kitchen' component={Kitchen} />
-                        </Switch>
-                    </Content>
-                </Layout>
+                <Header style={{ background: 'white', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <div onClick={() => setIsVisibleDrawer(true)}>
+                        <Avatar
+                            style={{ backgroundColor: '#87d068', cursor: "pointer" }}
+                            icon={<UserOutlined />}
+                        />
+                    </div>
+                </Header>
+                <Content className="site-layout-background">
+                    <Switch>
+                        <Route exact path='/' component={BeginPage} />
+                        <Route path='/cafe' component={Cafe} />
+                        <Route path='/kitchen' component={Kitchen} />
+                    </Switch>
+                </Content>
             </Layout>
         </div>
     );

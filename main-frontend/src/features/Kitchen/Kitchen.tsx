@@ -9,6 +9,10 @@ import { ingredients1, statuses } from './constants';
 import { setFriedFood, getServerConfirm } from '../../store/actions';
 import { IIngredient, IState } from '../../intarfaces';
 
+message.config({
+    maxCount: 1,
+});
+
 const Kitchen: React.FC = () => {
     const history = useHistory();
     const dispatch: any = useDispatch();
@@ -40,10 +44,9 @@ const Kitchen: React.FC = () => {
     }, [ dish.length ]);
 
     useEffect(() => {
-        console.log(time, statusDish)
         time < 10 && statusDish === statuses.cooking && setTimeout(() => setTime(time + 0.5), 500);
         if(time === 10) {
-            setStatusDish(statuses.error);
+            timeError();
             message.warning('Пережарили :(');
         }
     }, [ time, statusDish ]);
@@ -71,11 +74,15 @@ const Kitchen: React.FC = () => {
         setIsValidDrop(false);
     };
 
+    const timeError = () => {
+        setIngredients([ ...ingredients1 ]);
+        setDish([]);
+        setStatusDish(statuses.error);
+    };
+
     const onClickCompleted = () => {
         if (time <= 5 || time >= 7) {
-            setIngredients([ ...ingredients1 ]);
-            setDish([]);
-            setStatusDish(statuses.error);
+            timeError();
             if (time <= 6) {
                 message.warning('Недожарили :(');
             } else {
@@ -128,7 +135,7 @@ const Kitchen: React.FC = () => {
                 <div
                     onDrop={onDrop}
                     onDragOver={onDragOver}
-                    className={'pan'}
+                    className={`pan + ${statusDish === statuses.success ? ' is-clicked-pan' : ''}`}
                     // + (dish.length === 3 ? ' is-clicked-pan' : '')
                     onClick={statusDish === statuses.success ? () => history.replace('/cafe') : () => {}}
                     style={{ border: isShowHint ? '2px dashed green' : 'none', cursor: statusDish === statuses.success ? 'pointer' : '' }}

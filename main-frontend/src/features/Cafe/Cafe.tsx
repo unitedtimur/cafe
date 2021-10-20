@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import _ from 'lodash';
 
 import { Tooltip, Button } from 'antd/es';
@@ -8,9 +9,11 @@ import { IState } from '../../intarfaces';
 import { getDialog } from '../../store/actions';
 import client1 from '../../images/client1.png';
 import client2 from '../../images/client2.png';
+import { IPlayerPhrasesItem } from '../../intarfaces';
 
 const Cafe: React.FC = () => {
     const dispatch: any = useDispatch();
+    const history = useHistory();
 
     const dialogInfo = useSelector((state: IState) => state.dialogInfo);
 
@@ -19,6 +22,17 @@ const Cafe: React.FC = () => {
             dispatch(getDialog('9d73f2e6-151e-408f-82ef-dc2add75ad6c'));
         }
     }, []);
+
+    const onClickPhase = (item: IPlayerPhrasesItem) => {
+        if (item.nextDialogId) {
+            if (item.phrase === '<Угостить>') {
+                dispatch(getDialog(item.nextDialogId));
+                history.push('/kitchen');
+            } else {
+                dispatch(getDialog(item.nextDialogId));
+            }
+        }
+    };
 
     const dialogTooltip = (
         <>
@@ -31,7 +45,7 @@ const Cafe: React.FC = () => {
                             type="ghost"
                             className="answer-button"
                             key={item.nextDialogId}
-                            onClick={() => item.nextDialogId ? dispatch(getDialog(item.nextDialogId)) : {}}
+                            onClick={() => onClickPhase(item)}
                         >
                             {item.phrase}
                         </Button>
@@ -40,8 +54,6 @@ const Cafe: React.FC = () => {
             </div>
         </>
     );
-
-    console.log(dialogInfo)
 
     return (
         <div className="cafe">

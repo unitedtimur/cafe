@@ -50,7 +50,6 @@ export function getServerConfirm(ids: string[]) {
     return async (dispatch: any) => {
         const response = await getServerConfirmApi(ids);
 
-        console.log(response)
         return response;
     }
 }
