@@ -17,7 +17,7 @@ const BeginPage: React.FC = () => {
     return (
         <>
             <Button
-                style={{ margin: '10% auto', display: 'block' }}
+                style={{ margin: '10% auto', display: 'block', fontSize: '50px', height: 'auto' }}
                 type="primary"
                 onClick={() => dispatch(changeIsBeginPage(false))}
             >

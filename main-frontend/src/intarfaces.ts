@@ -4,6 +4,7 @@ export interface IState {
     isMusicPlay: boolean,
     dialogInfo: IDialogInfo | null,
     friedFood: boolean,
+    client: string,
 }
 
 export interface IIngredient {
@@ -26,4 +27,10 @@ export interface IDialogInfo {
 export interface IPlayerPhrasesItem {
     nextDialogId: string | null,
     phrase: string,
+}
+
+export interface IClient {
+    width: number,
+    src: string,
+    dialogId: string,
 }

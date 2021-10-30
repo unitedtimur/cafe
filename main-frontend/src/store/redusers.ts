@@ -1,5 +1,6 @@
-import { IS_BEGIN_PAGE, SET_VOLUME, CHANGE_MUSIC_STATE, SET_DIALOG, SET_FRIED_FOOD } from './actions';
+import { IS_BEGIN_PAGE, SET_VOLUME, CHANGE_MUSIC_STATE, SET_DIALOG, SET_FRIED_FOOD, SET_CLIENT } from './actions';
 import { IState } from '../intarfaces';
+import { man, woman } from '../features/Cafe/constants';
 
 const initialState: IState = {
     isBeginPage: false,
@@ -7,6 +8,7 @@ const initialState: IState = {
     isMusicPlay: false,
     dialogInfo: null,
     friedFood: false,
+    client: 'man',
 };
 
 export default function reducer(state = initialState, action: any): IState {
@@ -39,6 +41,12 @@ export default function reducer(state = initialState, action: any): IState {
             return {
                 ...state,
                 friedFood: action.friedFood,
+            }
+
+        case SET_CLIENT:
+            return {
+                ...state,
+                client: state.client === woman ? man : woman,
             }
 
         default: return state;

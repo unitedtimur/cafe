@@ -6,22 +6,33 @@ import _ from 'lodash';
 import { Tooltip, Button } from 'antd/es';
 
 import { IState } from '../../intarfaces';
-import { getDialog } from '../../store/actions';
-import client1 from '../../images/client1.png';
-import client2 from '../../images/client2.png';
+import { clients } from '../Cafe/constants';
+import { getDialog, changeClient } from '../../store/actions';
 import { IPlayerPhrasesItem } from '../../intarfaces';
+import { man, woman } from './constants';
 
 const Cafe: React.FC = () => {
     const dispatch: any = useDispatch();
     const history = useHistory();
 
-    const dialogInfo = useSelector((state: IState) => state.dialogInfo);
+    const { dialogInfo, client } = useSelector((state: IState) => state);
+
+    useEffect(() => {
+        if(_.isNull(dialogInfo?.playerPhrasesArray)) {
+            setTimeout(() => onChangeClient(), 5000);
+        }
+    }, [ dialogInfo?.playerPhrasesArray ]);
 
     useEffect(() => {
         if(_.isNull(dialogInfo)) {
-            dispatch(getDialog('9d73f2e6-151e-408f-82ef-dc2add75ad6c'));
+            dispatch(getDialog(clients[client].dialogId));
         }
     }, []);
+
+    const onChangeClient = () => {
+        dispatch(changeClient());
+        dispatch(getDialog(clients[client === man ? woman : man ].dialogId));
+    };
 
     const onClickPhase = (item: IPlayerPhrasesItem) => {
         if (item.nextDialogId) {
@@ -31,6 +42,8 @@ const Cafe: React.FC = () => {
             } else {
                 dispatch(getDialog(item.nextDialogId));
             }
+        } else {
+            onChangeClient();
         }
     };
 
@@ -65,26 +78,10 @@ const Cafe: React.FC = () => {
             >
                 <img
                     alt="client"
-                    src={client2}
-                    width="170"
-                    height="250"
-                    style={{ position: 'absolute', top: '41.3vh', right: '40vw', pointerEvents: 'none' }}
+                    src={clients[client].src}
+                    style={{ position: 'absolute', top: '41.3vh', right: '25vw', pointerEvents: 'none', height: '31.5vh', width: `${clients[client].width}vh` }}
                 />
             </Tooltip>
-            {/*<Tooltip*/}
-            {/*    title="Hi, mister!"*/}
-            {/*    visible*/}
-            {/*    overlayStyle={{maxWidth: '200px'}}*/}
-            {/*    zIndex={2}*/}
-            {/*>*/}
-            {/*    <img*/}
-            {/*        alt="client"*/}
-            {/*        src={client1}*/}
-            {/*        width="300"*/}
-            {/*        height="250"*/}
-            {/*        style={{ position: 'absolute', top: '41.3vh', right: '15vw', pointerEvents: 'none' }}*/}
-            {/*    />*/}
-            {/*</Tooltip>*/}
         </div>
     );
 };

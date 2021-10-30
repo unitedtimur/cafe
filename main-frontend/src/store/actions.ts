@@ -5,6 +5,7 @@ export const SET_VOLUME = 'SET_VOLUME';
 export const CHANGE_MUSIC_STATE = 'CHANGE_MUSIC_STATE';
 export const SET_DIALOG = 'SET_DIALOG';
 export const SET_FRIED_FOOD = 'SET_FRIED_FOOD';
+export const SET_CLIENT = 'SET_CLIENT';
 
 export function setVolume(volume: number) {
     return {
@@ -37,8 +38,6 @@ export function getDialog(dialogId: string) {
     return async (dispatch: any) => {
         const response = await getDialogApi(dialogId);
 
-        console.log(response)
-
         dispatch({
             type: SET_DIALOG,
             dialogInfo: response,
@@ -51,5 +50,11 @@ export function getServerConfirm(ids: string[]) {
         const response = await getServerConfirmApi(ids);
 
         return response;
+    }
+}
+
+export function changeClient() {
+    return {
+        type: SET_CLIENT,
     }
 }
