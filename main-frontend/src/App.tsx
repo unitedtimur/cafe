@@ -32,9 +32,9 @@ const App: React.FC = () => {
     const [ sound ] = useState<HTMLAudioElement>(new Audio(mp3));
     const [ isVisibleDrawer, setIsVisibleDrawer ] = useState<boolean>(false);
 
-    // useEffect(() => {
-    //     history.push('/');
-    // }, []);
+    useEffect(() => {
+        history.push('/');
+    }, []);
 
     useEffect(() => {
         sound.volume = volume;
