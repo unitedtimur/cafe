@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import _ from 'lodash';
 
-import { Progress, message, Button, Tooltip } from 'antd/es';
+import { Progress, message, Button, Tooltip, Modal } from 'antd/es';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 import { ingredients1, statuses } from './constants';
-import { setFriedFood, getServerConfirm } from '../../store/actions';
-import { IIngredient, IState } from '../../intarfaces';
+import { getServerConfirm } from '../../store/actions';
+import { IIngredient } from '../../intarfaces';
 
 message.config({
     maxCount: 1,
@@ -17,8 +18,6 @@ const Kitchen: React.FC = () => {
     const history = useHistory();
     const dispatch: any = useDispatch();
 
-    // const friedFood = useSelector((state: IState) => state.friedFood);
-
     const [ ingredients, setIngredients ] = useState<IIngredient[]>([ ...ingredients1 ]);
     const [ dish, setDish ] = useState<IIngredient[]>([]);
     const [ isShowHint, setIsShowHint ] = useState<boolean>(false);
@@ -26,6 +25,7 @@ const Kitchen: React.FC = () => {
     const [ dragItem, setDragItem ] = useState<IIngredient>({});
     const [ time, setTime ] = useState<number>(NaN);
     const [ statusDish, setStatusDish ] = useState<string>(statuses.error);
+    const [ isVisibleModal, setIsVisibleModal ] = useState<boolean>(false);
 
     useEffect(() => {
         if (dish.length === 3) {
@@ -91,12 +91,28 @@ const Kitchen: React.FC = () => {
         } else {
             message.success('Блюдо готово!');
             setStatusDish(statuses.success);
-            // dispatch(setFriedFood());
         }
     };
 
     return (
         <div className="kitchen">
+            <Modal
+                title="Рецепты"
+                onCancel={() => setIsVisibleModal(false)}
+                visible={isVisibleModal}
+                onOk={() => setIsVisibleModal(false)}
+                cancelButtonProps={{ style: { display: 'none' } }}
+            >
+                <p>Для приготовления сливочной пасты вам необходимо взять: превосходную итальянскую пасту, свежие сливки, шампиньоны утреннего сбора</p>
+
+                <p>Для приготовления мяса в кисло-сладком соусе возьмите Мраморную говядину, добавьте перец и соль в необходимых пропорциях.</p>
+
+                Рецепт грибного супа максимально прост:
+                <p>Поместите шампиньоны и картофель в необходимую ёмкость, добавьте свежие сливки и специи.</p>
+        </Modal>
+            <Tooltip title="Рецепты">
+                <QuestionCircleOutlined onClick={() => setIsVisibleModal(true)} style={{ margin: 'auto', display: 'block' }}/>
+            </Tooltip>
             <div className="ingredients-container">
                 { statusDish === statuses.error && _.map(ingredients, (value, index) => (
                     <Tooltip title={value.name} key={value.id}>
